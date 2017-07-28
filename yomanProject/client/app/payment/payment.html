@@ -1,0 +1,184 @@
+<div class="pmnt row">
+<div class="col-sm-6 col-md-8">
+<p><b><H3 id="det">Share Your Details</H3></b></p>
+<form class="well">
+<label for="NAME">NAME :</label>
+<input type="text" name="NAME" placeholder="Name" autocomplete="off" required>
+
+<label for="EMAIL">EMAIL :</label>
+<input type="email" name="EMAIL" placeholder="EMAIL" autocomplete="off" required>
+
+</form>
+<div class="pay">
+  <h3>Payment Options</h3>
+</div>
+
+<div class="tab">
+<button class="tablinks" ng-click="paymentCtrl.payment(event, 'card')">DEBIT/CREDIT CARD</button>
+<button class="tablinks" ng-click="paymentCtrl.payment(event, 'bank')">NET BANKING</button>
+<button class="tablinks" ng-click="paymentCtrl.payment(event, 'gift')">GIFT VOUCHERS</button>
+<button class="tablinks" ng-click="paymentCtrl.payment(event, 'wallet')">OTHER WALLETS</button>
+<button class="tablinks" ng-click="paymentCtrl.payment(event, 'redeem')">REDEEM POINTS</button>
+</div>
+
+<div id="card" class="tabcontent">
+<b><h4>Enter your Card details</h4></b>
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="num">Card Number</label><br>
+    <div class="col-sm-12">
+      <input type="tel" class="form-control" id="num" placeholder="ENTER YOUR CARD NUMBER" maxlength="19" autocomplete="off" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-12">
+      <input type="text" class="form-control" id="name" placeholder="NAME ON THE CARD" name="name" autocomplete="off" required>
+    </div>
+  </div>
+
+<div class="row form-group" >
+    <div class="col-sm-12">
+      <div class="row">
+          <label>Expiry</label><br>
+        <div class="col-sm-3">
+          <select id="month" autocomplete="off" required>
+            <option value="">Month</option>
+            <option value="01">January</option>
+            <option value="02">February</option>
+            <option value="03">March</option>
+            <option value="04">April</option>
+            <option value="05">May</option>
+            <option value="06">June</option>
+            <option value="07">July</option>
+            <option value="08">August</option>
+            <option value="09">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </div>
+        <div class="col-sm-3">
+          <select id="year" autocomplete="off" required>
+            <option value="">Year</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <input type="password" class="form-control" id="cvv" placeholder="CVV" name="cvv" maxlength="3" autocomplete="off" required>
+        </div>
+      </div>
+    </div>
+</div>
+<br>
+<button class="btn btn-danger" type="submit" ng-click="paymentCtrl.card()">
+    MAKE PAYMENT
+</button>
+<br>
+<p>By clicking "Make payment" you agree to the terms and conditions<p>
+</form>
+</div>
+
+<div id="bank" class="tabcontent">
+<b><h3>Pay using Net Banking</h3></b>
+<input type="radio" name="img">
+<img src="../assets/images/sbi.png" >
+<input type="radio" name="img">
+<img src="../assets/images/axis.png" ><br><br>
+<input type="radio" name="img">
+<img src="../assets/images/icici.png" >
+<input type="radio" name="img">
+<img src="../assets/images/hdfc.png" >
+<br><br>
+<button class="btn btn-danger" type="button" ng-click="paymentCtrl.makeP()">
+    MAKE PAYMENT
+</button>
+<br><br>
+<p>By clicking "Make payment" you agree to the terms and conditions<p>
+</div>
+
+<div id="gift" class="tabcontent">
+<b><h3>Pay using Gift Voucher</h3></b>
+<br><br>
+<input type="text" name="voucher" id="gv" placeholder="Enter your GV number" autocomplete="off">
+<label for="gv"></label>
+<button class="btn btn-danger" type="button" ng-click="paymentCtrl.makeP()">
+    APPLY NOW
+</button>
+</div>
+
+<div id="wallet" class="tabcontent">
+<b><h3>Pay using by Wallets & Cash Card</h3></b>
+<br>
+<input type="radio" name="">
+<img src="../assets/images/idea.png" >
+<input type="radio" name="">
+<img src="../assets/images/airtel.png" >
+<input type="radio" name="">
+<img src="../assets/images/paytm.png" ><br><br>
+<input type="radio" name="">
+<img src="../assets/images/mobikwik.png" >
+<input type="radio" name="">
+<img src="../assets/images/jio.jpg" >
+<br><br>
+<button class="btn btn-danger" type="button" ng-click="paymentCtrl.makeP()">
+    MAKE PAYMENT
+</button>
+<br><br>
+<p>By clicking "Make payment" you agree to the terms and conditions<p>
+</div>
+
+<div id="redeem" class="tabcontent">
+<b><h3>You can pay by redeeming your Reward Points</h3></b>
+<br>
+<input type="radio" name="">
+<img src="../assets/images/citi.png" >
+<input type="radio" name="">
+<img src="../assets/images/payback.png" >
+<br><br>
+<button class="btn btn-danger" type="button" ng-click="paymentCtrl.makeP()">
+    MAKE PAYMENT
+</button>
+<br><br>
+<p>By clicking "Make payment" you agree to the terms and conditions<p>
+</div>
+<div class="note">
+<p><h4><b>NOTE :</b></h4></p>
+1.  Registrations/Tickets once booked cannot be exchanged, cancelled or refunded.<br>
+2.  In case of Credit/Debit Card bookings, the Credit/Debit Card and Card holder must be present at the ticket counter while collecting the ticket(s).
+</div>
+</div>
+
+<div class="col-sm-6 col-md-3">
+<div class="pmntwel well">
+<table class="paytab">
+  <span id="paysumm"><h3><b>PAYMENT SUMMARY</b></h3></span>
+  <tr>
+    <th>MOVIE</th>
+    <td>{{paymentCtrl.t}}</td>
+  </tr>
+  <tr>
+    <th >CLASS</th>
+    <td>{{paymentCtrl.c}}</td>
+  </tr>
+  <tr>
+    <th>SEATS</th>
+    <td>{{paymentCtrl.n}}</td>
+  </tr>
+  <tr>
+    <th>AMOUNT</th>
+    <td>{{paymentCtrl.a}}</td>
+  </tr>
+</table>
+</div>
+</div>
+</div>

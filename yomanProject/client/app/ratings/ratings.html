@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="rate row">
+    <div class="col-md-4" id="movrate">
+    {{ratingsCtrl.movieTitle}}<br>
+    <br>
+    <img src="" id="post"><br>
+    </div>
+    <div class="well ratingWell col-md-4">
+     <legend><b>NAME:</b></legend>
+      <div>
+        <input type="text" id="name" value="" autocomplete="off">
+      </div>
+      <br><br><br>
+      <fieldset class="rating">
+      <legend><b>AVERAGE RATING:</b></legend>
+      <div id="rte">
+      {{ratingsCtrl.average}}
+    </div><BR><BR>
+      <legend><b>Please rate:</b></legend>
+         <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+         <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+         <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Average">3 stars</label>
+         <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Not Good">2 stars</label>
+         <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Very Bad">1 star</label>
+   </fieldset><br>
+  <button type="button" class="rateIt btn btn-success" ng-click="ratingsCtrl.save()">Rate It</button>
+    </div>
+  </div>
+  <br><br>
+  <div class="col-md-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>NAME</th>
+          <th>User Ratings</th>
+        </tr>
+      </thead>
+    <tbody>
+      <tr ng-repeat="x in ratingsCtrl.userRate">
+        <td>{{x.Name}}</td>
+        <td>{{x.Ratings}}</td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+</div>

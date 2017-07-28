@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="mov" id="mov" ng-model="SelectedMovie">
+{{bookingCtrl.movieTitle}}
+    </div>
+
+
+<div class="col-md-5" >
+    <img src="" alt="poster" id="Post" height="380" width="320">
+</div>
+<div class="col-md-5">
+  <select class="ct" ng-model="SelectedCity">
+    <option value="">Select City</option>
+    <option value="{{x.City}}" ng-repeat="x in bookingCtrl.theatreData |unique:'City'">{{x.City}}</option>
+  </select><br><br><br>
+  <select class="pl" ng-model="SelectedPlace">
+    <option value="">Select Place</option>
+    <option value="{{x.Place}}" ng-repeat="x in bookingCtrl.theatreData |filter:SelectedCity">{{x.Place}}</option>
+  </select><br><br><br>
+  <select class="dt" ng-model="SelectedDates">
+    <option value="">Select Date</option>
+    <option value="{{x|date:'MM/dd/yyyy'}}" ng-repeat="x in bookingCtrl.movDates">{{x|date:'MM/dd/yyyy'}}</option>
+  </select>
+</div>
+  </div>
+  <br><br><br>
+<table class="table">
+  <thead id="movdet">
+    <tr>
+      <th>Title</th>
+      <th>City</th>
+      <th>Place</th>
+      <th>Theatre Name</th>
+      <th>Date</th>
+      <th>Timing</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-show="SelectedCity" ng-repeat="x in bookingCtrl.mappingDataTitle | filter:SelectedDates | filter:SelectedCity |filter:SelectedPlace">
+      <td>{{x.Title}}</td>
+      <td>{{x.City}}</td>
+      <td>{{x.Place}}</td>
+      <td>{{x.TheatreName}}</td>
+      <td>{{x.ShowDate}}</td>
+      <td ng-repeat="i in x.ShowTime" class="col-md-1"><button class="btn btn-info" ng-click="bookingCtrl.timing(x.Title,x.City,x.Place,x.TheatreName,x.ShowDate,i)">{{i}}</button></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>

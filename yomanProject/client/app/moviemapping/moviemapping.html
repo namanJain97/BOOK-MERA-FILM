@@ -1,0 +1,65 @@
+<form class="mapping">
+<select ng-model="moviemappingCtrl.selectedMovie">
+  <option value="">Select a Movie</option>
+  <option value="{{x.Title}}" ng-repeat="x in moviemappingCtrl.MovieData">{{x.Title}}</option>
+</select><br><br>
+
+<select ng-model="moviemappingCtrl.selectedCity">
+  <option value="">Select a City</option>
+  <option value="{{x.City}}" ng-repeat="x in moviemappingCtrl.theatreData |unique:'City'">{{x.City}}</option>
+</select><br><br>
+
+<select ng-model="moviemappingCtrl.selectedPlace">
+  <option value="">Select a Place</option>
+  <option value="{{x.Place}}" ng-repeat="x in moviemappingCtrl.theatreData | filter:moviemappingCtrl.selectedCity">{{x.Place}}</option>
+</select><br><br>
+
+<select ng-model="moviemappingCtrl.selectedTheatre">
+  <option value="">Select a Theatre</option>
+  <option value="{{x.TheatreName}}" ng-repeat="x in moviemappingCtrl.theatreData  | filter:moviemappingCtrl.selectedPlace |unique:'TheatreName'">{{x.TheatreName}}</option>
+</select><br><br>
+
+<label for="datepicker" id="date">Select Date: <i class="glyphicon glyphicon-calendar"></i></label><br>
+<input type="text" ng-model="moviemappingCtrl.selectedDate" id="datepicker"><br><br>
+
+<p id="time"><b>Select Time: <i class="glyphicon glyphicon-time"></i></b></p>
+<select id="hh">
+  <option value="">HH</option>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+</select>
+<select id="mm">
+  <option value="">MM</option>
+  <option value="00">00</option>
+  <option value="10">10</option>
+  <option value="20">20</option>
+  <option value="30">30</option>
+  <option value="40">40</option>
+  <option value="50">50</option>
+</select>
+<select id="am">
+<option value="am">AM</option>
+<option value="pm">PM</option>
+</select>
+<button type="submit" ng-click="moviemappingCtrl.time()" class="btn btn-info">ADD</button><br><br>
+
+<select id="opt" multiple>
+</select>
+<br><br>
+<!-- <ul class="nav nav-pills">
+<li role="button" ng-model="moviemappingCtrl.selectedTime"><a href="#">{{moviemappingCtrl.tym}}</a></li>
+<input type="text" ng-model="moviemappingCtrl.selectedTime" value="{{moviemappingCtrl.tym}}">
+</ul><br><br> -->
+
+<button type="submit" class="btn btn-success" ng-click="moviemappingCtrl.mapMovie()">Map New Movie</button><br>
+</form><br>

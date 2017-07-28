@@ -1,0 +1,37 @@
+<div class="container">
+  <form class="thtre form-group" id="myForm">
+    <fieldset>
+      <legend><h2 id="add">Adding Theatres :</h2></legend>
+      <label for="tn">Theatre :</label>
+      <input type="text" placeholder="Theatre Name" ng-model="theatreCtrl.theatreName" class="thtreF form-control">
+      <br>
+      <label for="place">Place :</label>
+      <input type="text" placeholder="Place" ng-model="theatreCtrl.place" class="thtreF form-control">
+      <br>
+      <label for="city">City :</label>
+      <input type="text" placeholder="City" ng-model="theatreCtrl.city" class="thtreF form-control">
+    </fieldset>
+    <BR><BR>
+    <button type="submit" class="btn btn-info" ng-click="theatreCtrl.addTheatre()" value="Reset form">Add Theatre <i class="glyphicon glyphicon-plus"></i></button>
+    <br><br><br>
+  </form>
+  <span id="adtht"><h3>ADDED THEATRES</h3></span>
+  <BR><BR>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Theatre Name</th>
+        <th>Place</th>
+        <th>City</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr ng-repeat="x in theatreCtrl.theatreData">
+      <td>{{x.TheatreName}}</td>
+      <td>{{x.Place}}</td>
+      <td>{{x.City}}</td>
+      <td><button class="btn btn-danger" ng-click="theatreCtrl.RemoveTheatre(x)"><span class="glyphicon glyphicon-trash"></span></button></td>
+    </tr>
+  </tbody>
+  </table>
+</div>

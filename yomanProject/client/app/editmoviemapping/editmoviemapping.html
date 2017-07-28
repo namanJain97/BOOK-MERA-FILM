@@ -1,0 +1,23 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>City</th>
+      <th>Place</th>
+      <th>TheatreName</th>
+      <th>ShowDate</th>
+      <th>ShowTime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="x in editmoviemappingCtrl.mappingData">
+      <td>{{x.Title}}</td>
+      <td>{{x.City}}</td>
+      <td>{{x.Place}}</td>
+      <td>{{x.TheatreName}}</td>
+      <td>{{x.ShowDate}}</td>
+      <td>{{x.ShowTime}}</td>
+      <td><button class="btn btn-danger" ng-click="editmoviemappingCtrl.removeMapping(x)"><span class="glyphicon glyphicon-trash"></span></button></td>
+    </tr>
+  </tbody>
+</table>
